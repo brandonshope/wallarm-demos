@@ -1,0 +1,12 @@
+alex_notes.md
+variables.auto.tfvars
+terraform.tfstate*
+.terraform
+.terraform*
+wallarm_auth
+draft/
+gotestwaf/
+reports/
+env
+ssl/
+
