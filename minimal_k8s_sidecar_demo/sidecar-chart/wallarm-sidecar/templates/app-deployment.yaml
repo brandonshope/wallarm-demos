@@ -30,6 +30,18 @@ spec:
             value: "true"
           - name: TARANTOOL_MEMORY_GB
             value: {{ .Values.wallarm.tarantool_memory_gb | quote }}
+          volumeMounts:
+          - mountPath: /etc/wallarm
+            name: wallarm
+          - mountPath: /var/lib/wallarm-acl
+            name: wallarm-acl
+          resources:
+            limits:
+              cpu: 100m
+        - name: wallarm-nginx
+          image: {{ .Values.wallarm.image.repository }}:{{ .Values.wallarm.image.tag }}
+          imagePullPolicy: {{ .Values.wallarm.image.pullPolicy | quote }}
+          command: ["/usr/local/bin/init", "--nginx-only"]
           ports:
           - name: http
             # Port on which the Wallarm sidecar container accepts requests
@@ -39,6 +51,13 @@ spec:
           - mountPath: /etc/nginx/sites-enabled
             readOnly: true
             name: wallarm-nginx-conf
+          - mountPath: /etc/wallarm
+            name: wallarm
+          - mountPath: /var/lib/wallarm-acl
+            name: wallarm-acl
+          resources:
+            limits:
+              cpu: 900m
         # Definition of your main app container
         - name: myapp
           image: nginx
@@ -67,5 +86,7 @@ spec:
           items:
             - key: default
               path: default.conf
-
-
+      - name: wallarm-acl
+        emptyDir: {}
+      - name: wallarm
+        emptyDir: {}
