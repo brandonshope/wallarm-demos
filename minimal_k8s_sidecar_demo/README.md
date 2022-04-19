@@ -71,7 +71,17 @@ kubectl get pods
 NAME                     READY   STATUS    RESTARTS   AGE
 myapp-5894b59747-blrxt   2/2     Running   0          66m
 ```
+# Processing Time
 
+kubectl logs myapp-5894b59747-blrxt wallarm-nginx
+
+```
+{"http.url":"/?id=or+1=1--a-<script>prompt(1)</script>","http.version":"HTTP/1.1","http.status_code":200,"http.method":"GET","http.referer":"","http.useragent":"curl/7.69.1","time_local":"19/Apr/2022:14:28:26 +0000","remote_addr":"172.18.0.2","remote_user":"","body_bytes_sent":"615","request_time":0.002,"response_content_type":"text/html","X-Forwarded-For":"172.18.0.2, 172.18.0.2","wallarm_request_mono_time":0.000811,"wallarm_request_cpu_time":0.000804}
+{"http.url":"/?id=or+1=1--a-<script>prompt(1)</script>","http.version":"HTTP/1.1","http.status_code":200,"http.method":"GET","http.referer":"","http.useragent":"curl/7.69.1","time_local":"19/Apr/2022:14:28:28 +0000","remote_addr":"172.18.0.2","remote_user":"","body_bytes_sent":"615","request_time":0.003,"response_content_type":"text/html","X-Forwarded-For":"172.18.0.2, 172.18.0.2","wallarm_request_mono_time":0.001149,"wallarm_request_cpu_time":0.001127}
+{"http.url":"/?id=or+1=1--a-<script>prompt(1)</script>","http.version":"HTTP/1.1","http.status_code":200,"http.method":"GET","http.referer":"","http.useragent":"curl/7.69.1","time_local":"19/Apr/2022:14:28:29 +0000","remote_addr":"172.18.0.2","remote_user":"","body_bytes_sent":"615","request_time":0.002,"response_content_type":"text/html","X-Forwarded-For":"172.18.0.2, 172.18.0.2","wallarm_request_mono_time":0.000570,"wallarm_request_cpu_time":0.000569}
+```
+
+> The last 2 metrics `wallarm_request_mono_time` and `wallarm_request_cpu_time` represent Wallarm request processing time measured using CLOCK_MONOTONIC and CLOCK_THREAD_CPUTIME_ID clocks respectively. DataDog should be able automatically parse them as they are formatted as JSON - https://www.datadoghq.com/blog/how-to-monitor-nginx-with-datadog/#use-json-logs-for-automatic-parsing.
 
 # Test 
 
