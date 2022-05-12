@@ -43,16 +43,6 @@ spec:
           - mountPath: /etc/nginx/sites-enabled 
             readOnly: true  
             name: wallarm-nginx-conf
-        # Definition of your main app container
-        - name: coffee
-          image: nginxdemos/nginx-hello:plain-text
-          resources:
-            limits:
-              memory: "128Mi"
-              cpu: "500m"
-          ports:
-          # Port on which the application container accepts incoming requests
-          - containerPort: 8080
       volumes:
       # Wallarm element: definition of the wallarm-nginx-conf volume
       - name: wallarm-nginx-conf
