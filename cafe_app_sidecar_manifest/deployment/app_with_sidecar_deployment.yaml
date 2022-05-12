@@ -43,6 +43,10 @@ spec:
           - mountPath: /etc/nginx/sites-enabled 
             readOnly: true  
             name: wallarm-nginx-conf
+        - name: coffee
+          image: nginxdemos/nginx-hello:plain-text
+          ports:
+          - containerPort: 8080
       volumes:
       # Wallarm element: definition of the wallarm-nginx-conf volume
       - name: wallarm-nginx-conf
