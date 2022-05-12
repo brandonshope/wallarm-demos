@@ -9,4 +9,4 @@ gotestwaf/
 reports/
 env
 ssl/
-
+auth
