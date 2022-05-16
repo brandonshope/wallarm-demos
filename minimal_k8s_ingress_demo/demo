@@ -30,7 +30,7 @@ fi
 
 if [ $1 = "build" ]; then
 	echo -e '\033[48;5;166m => Installing Wallarm \033[0m'
-        (set -x; git clone https://github.com/wallarm/ingress-chart --branch 3.2.0-1 --single-branch)
+        (set -x; git clone https://github.com/wallarm/ingress-chart --branch stable/3.4 --single-branch)
 
         echo "+ helm install --set controller.wallarm.enabled=true,controller.wallarm.token=xxxXx0x0XxXXx/QTb7yDhBpaD7CD+7c5vOhuWZCc8Z6PpXTXPu1INoHqhlyDCPVY,controller.wallarm.apiHost=us1.api.wallarm.com wallarm ingress-chart/wallarm-ingress -n default"
 

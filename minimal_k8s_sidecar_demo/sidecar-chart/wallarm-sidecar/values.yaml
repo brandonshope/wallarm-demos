@@ -24,7 +24,7 @@ wallarm:
   mode: "monitoring"
   # Amount of memory in GB for request analytics data,
   # recommended value is 75% of the total server memory
-  tarantool_memory_gb: .2
+  tarantool_memory_gb: 1
 service:
   port: 80
  

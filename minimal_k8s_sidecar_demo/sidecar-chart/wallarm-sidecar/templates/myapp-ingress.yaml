@@ -7,9 +7,9 @@ metadata:
 spec:
   tls:
   - hosts:
-    - localhost
+    - sidecar.example.com
   rules:
-  - host: localhost
+  - host: sidecar.example.com
     http:
       paths:
       - path: /
