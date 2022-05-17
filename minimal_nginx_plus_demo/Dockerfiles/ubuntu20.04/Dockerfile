@@ -48,10 +48,10 @@ RUN set -x \
     && DEBIAN_FRONTEND=noninteractive apt-get -qq -y install --no-install-recommends nginx-plus=${NGINX_VERSION}-${PKG_RELEASE} \
     #
     ## Install Wallarm Module
-    && curl -fsSL https://repo.wallarm.com/wallarm.gpg | sudo apt-key add -
-    && sh -c "echo 'deb http://repo.wallarm.com/ubuntu/wallarm-node focal/3.6/' | sudo tee /etc/apt/sources.list.d/wallarm.list"
-    && sudo apt update
-    && sudo apt install --no-install-recommends wallarm-node nginx-plus-module-wallarm
+    && curl -fsSL https://repo.wallarm.com/wallarm.gpg | sudo apt-key add - \
+    && sh -c "echo 'deb http://repo.wallarm.com/ubuntu/wallarm-node focal/3.6/' | sudo tee /etc/apt/sources.list.d/wallarm.list" \
+    && sudo apt update \
+    && sudo apt install --no-install-recommends wallarm-node nginx-plus-module-wallarm \
     #
     ## Optional: Install NGINX Plus Dynamic Modules (3rd-party) from repo
     ## See https://www.nginx.com/products/nginx/modules
