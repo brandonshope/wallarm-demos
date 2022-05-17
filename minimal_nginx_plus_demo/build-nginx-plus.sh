@@ -1,6 +1,7 @@
 #!/bin/bash
 # Usage EXAMPLE: ./build-nginx-plus.sh ubuntu18.04
-distro="$(tr [A-Z] [a-z] <<< "$1")" # set to lowercase
+#distro="$(tr [A-Z] [a-z] <<< "$1")" # set to lowercase
+distro="$(tr [A-Z] [a-z])"
 
 # Set build directory
 build_dir=''
