@@ -17,7 +17,7 @@ NGINX Plus with Wallarm Module
  2. Build an image from your Dockerfile:
     ```bash
     # ./build-nginx-plus.sh [Build-name]
-    $ ./build-nginx-plus.sh ubuntu18.04_nap
+    $ ./build-nginx-plus.sh debian10
     ```
     
 ## Useful Docker commands
