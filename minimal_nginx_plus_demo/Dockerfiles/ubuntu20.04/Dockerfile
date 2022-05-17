@@ -52,8 +52,6 @@ RUN set -x \
     && sh -c "echo 'deb http://repo.wallarm.com/ubuntu/wallarm-node focal/3.6/' | sudo tee /etc/apt/sources.list.d/wallarm.list"
     && sudo apt update
     && sudo apt install --no-install-recommends wallarm-node nginx-plus-module-wallarm
-    && COPY scripts/addnode_loop /usr/local/bin/
-    && CMD ["/usr/local/bin/init"]
     #
     ## Optional: Install NGINX Plus Dynamic Modules (3rd-party) from repo
     ## See https://www.nginx.com/products/nginx/modules
@@ -199,7 +197,12 @@ RUN set -x \
 # COPY /etc/nginx (Nginx configuration) directory
 COPY etc/nginx /etc/nginx
 
+#Wallarm Init
+COPY scripts/addnode_loop /usr/local/bin/
+COPY scripts/init /usr/local/bin/
+
+
 # EXPOSE ports, HTTP 80, HTTPS 443 and, Nginx status page 8080
 EXPOSE 80 443 8080
 STOPSIGNAL SIGTERM
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;", "/usr/local/bin/init"]
