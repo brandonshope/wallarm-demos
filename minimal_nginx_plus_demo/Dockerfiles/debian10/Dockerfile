@@ -222,7 +222,6 @@ COPY scripts/init /usr/local/bin/
 COPY scripts/addnode_loop /usr/local/bin/
 COPY conf/supervisord.conf /etc/supervisor/
 COPY conf/logrotate.conf /etc/
-COPY conf/default /etc/nginx/conf.d/
 COPY conf/collectd.conf /etc/collectd/
 
 # EXPOSE ports, HTTP 80, HTTPS 443 and, Nginx status page 8080

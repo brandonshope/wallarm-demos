@@ -198,8 +198,12 @@ RUN set -x \
 COPY etc/nginx /etc/nginx
 
 #Wallarm Init
-COPY scripts/addnode_loop /usr/local/bin/
+RUN cp /usr/share/doc/libnginx-mod-http-wallarm/examples/wallarm-status.conf /etc/nginx/conf.d/
 COPY scripts/init /usr/local/bin/
+COPY scripts/addnode_loop /usr/local/bin/
+COPY conf/supervisord.conf /etc/supervisor/
+COPY conf/logrotate.conf /etc/
+COPY conf/collectd.conf /etc/collectd/
 
 
 # EXPOSE ports, HTTP 80, HTTPS 443 and, Nginx status page 8080

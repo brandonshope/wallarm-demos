@@ -171,6 +171,6 @@ fi
 prepare_dirs
 register_node
 sync_node
-configure_nginx
+#configure_nginx
 
 exec /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
