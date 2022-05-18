@@ -1,7 +1,7 @@
-# NGINX Plus Dockerfiles
+# NGINX Plus with Wallarm Dockerfiles
 
 
-## Build NGINX Plus Docker container
+## Build NGINX Plus with Wallarm Docker container
 
  1. Prepare your NGINX license files in the correct build directories:
       * **For NGINX Plus:** Copy your `nginx-repo.crt` and `nginx-repo.key` into [`etc/ssl/nginx`](./NGINX-PLUS/ssl/nginx) directory
