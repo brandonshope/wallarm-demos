@@ -22,7 +22,14 @@
     sudo /usr/share/wallarm-common/addnode -H us1.api.wallarm.com
     # enter depoloyemnt username and password when prompted
     ```
-    
+
+## NGINX Plus API/Dashboard
+
+   ```bash
+   The NGINX Plus API and Dashboard are enabled by default, in default.conf. (write=off)
+   You can access the dashboard vi http://my.example.com/dashboard.html
+   ```
+   
 ## Useful Docker commands
 
 
