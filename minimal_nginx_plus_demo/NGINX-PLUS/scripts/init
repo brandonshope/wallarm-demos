@@ -52,7 +52,7 @@ register_node() {
 }
 
 nginx_daemon_off() {
-  nginx -g daemon off"
+  nginx -g daemon off
 }
 
 register_node
