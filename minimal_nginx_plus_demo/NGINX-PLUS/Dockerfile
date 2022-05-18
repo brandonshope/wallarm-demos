@@ -74,7 +74,8 @@ RUN set -x \
                         supervisor \
                         #nginx \
                         wallarm-node \
-                        libnginx-mod-http-wallarm \
+                        nginx-plus-module-wallarm \
+                        #libnginx-mod-http-wallarm \
                         collectd-utils \
                         iptables \
                         bsdmainutils \
