@@ -32,6 +32,9 @@ RUN set -x \
                         gnupg1 \
                         vim-tiny \
                         apt-utils \
+                        curl \
+                        nano \
+                        sudo \
     && \
     NGINX_GPGKEY=573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62; \
     found=''; \
@@ -70,7 +73,6 @@ RUN set -x \
     && apt-get update \
     && apt-get install --no-install-recommends -y \
                         $nginxPackages \
-                        curl \
                         #logrotate \
                         #monitoring-plugins \
                         #supervisor \
@@ -80,8 +82,6 @@ RUN set -x \
                         #collectd-utils \
                         #iptables \
                         #bsdmainutils \
-                        nano \
-                        sudo \
     && apt-get remove --purge -y lsb-release \
     && apt-get remove --purge --auto-remove -y && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/nginx-plus.list \
     && rm -rf /etc/apt/apt.conf.d/90nginx /etc/ssl/nginx \
