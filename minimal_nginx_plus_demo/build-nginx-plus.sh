@@ -14,7 +14,7 @@ build_dir=''
 #
 
     # Set build directory
-    build_dir='./NGINX-PLUS'
+    build_dir='./NGINX-PLUS/'
     
     # remove Dockerfile here (if exists)
     rm $build_dir/Dockerfile || true
@@ -23,7 +23,7 @@ build_dir=''
     cp Dockerfiles/$distro/Dockerfile $build_dir
     
     # Build and tag it as "nginx-plus-[distro]"
-    docker build -t nginx-plus-$distro $build_dir --pull --progress plain --no-cache # No caching
+    docker build --no-cache -t nginx-plus-$distro $build_dir .
 
     # Show all docker containers build with names containing "nginx-plus-"
     printf "\n"
