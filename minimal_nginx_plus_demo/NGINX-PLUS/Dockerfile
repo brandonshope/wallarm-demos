@@ -73,6 +73,7 @@ RUN set -x \
                         wallarm-node \
                         nginx-plus-module-wallarm \
                         nano \
+                        sudo \
     && apt-get remove --purge -y lsb-release \
     && apt-get remove --purge --auto-remove -y && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/nginx-plus.list \
     && rm -rf /etc/apt/apt.conf.d/90nginx /etc/ssl/nginx \

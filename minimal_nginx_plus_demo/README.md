@@ -13,7 +13,13 @@
     ```
  3. Run the Docker image:
      ```bash
-    docker run -d -e DEPLOY_USER='deploy@example.com' -e DEPLOY_PASSWORD='very_secret' -e WALLARM_API_HOST='us1.api.wallarm.com' -p 80:80 nginxplus-wallarm:latest
+    docker run -d -p 80:80 nginxplus-wallarm:latest
+    ```
+ 4. Add the Wallarm Node
+    ```bash
+    sudo docker ps
+    sudo docker exec -i -t <container_ID> /bin/bash
+    sudo /usr/share/wallarm-common/addnode -H us1.api.wallarm.com
     ```
     
 ## Useful Docker commands
