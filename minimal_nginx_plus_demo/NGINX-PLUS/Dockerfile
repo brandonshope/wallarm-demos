@@ -85,7 +85,7 @@ RUN set -x \
 #COPY /scripts/addnode_loop /usr/local/bin/
 COPY /conf/nginx.conf /etc/nginx/
 
-EXPOSE 80
+EXPOSE 80 443
 
 STOPSIGNAL SIGQUIT
 
