@@ -1,2 +1,0 @@
-deb [signed-by=/usr/share/keyrings/wallarm.gpg] http://repo.wallarm.com/debian/wallarm-node bullseye/3.6/
-#deb [trusted=yes] http://repo.wallarm.com/debian/wallarm-node buster/3.6/
