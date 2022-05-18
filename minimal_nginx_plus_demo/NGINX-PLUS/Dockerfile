@@ -90,7 +90,7 @@ RUN set -x \
     #&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && chown -R wallarm:wallarm /var/lib/wallarm-tarantool
 
-RUN cp /usr/share/doc/libnginx-mod-http-wallarm/examples/wallarm-status.conf /etc/nginx/conf.d/
+#RUN cp /usr/share/doc/libnginx-mod-http-wallarm/examples/wallarm-status.conf /etc/nginx/conf.d/
 COPY /scripts/init /usr/local/bin/
 COPY /scripts/addnode_loop /usr/local/bin/
 COPY /conf/supervisord.conf /etc/supervisor/
