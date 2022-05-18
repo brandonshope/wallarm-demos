@@ -69,9 +69,15 @@ RUN set -x \
     && apt-get install --no-install-recommends --no-install-suggests -y \
                         $nginxPackages \
                         curl \
+                        logrotate \
+                        monitoring-plugins \
+                        supervisor \
                         gettext-base \
                         wallarm-node \
                         nginx-plus-module-wallarm \
+                        collectd-utils \
+                        iptables \
+                        bsdmainutils \
                         nano \
                         sudo \
     && apt-get remove --purge -y lsb-release \
