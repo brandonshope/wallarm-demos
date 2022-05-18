@@ -1,6 +1,6 @@
 FROM debian:bullseye-slim
 
-LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>"
+LABEL maintainer="bshope@wallarm.com"
 
 # Define NGINX versions for NGINX Plus and NGINX Plus modules
 # Uncomment this block and the versioned nginxPackages block in the main RUN
@@ -81,13 +81,17 @@ RUN set -x \
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
 
-#COPY /scripts/init2 /usr/local/bin/
-#COPY /scripts/addnode_loop /usr/local/bin/
+COPY /scripts/init /usr/local/bin/
+COPY /scripts/addnode_loop /usr/local/bin/
 COPY /conf/nginx.conf /etc/nginx/
+COPY /conf/wallarm-status.conf /etc/nginx/conf.d/
+COPY /conf/wallarm.conf /etc/nginx/conf.d/
+#COPY /conf/default.conf /etc/nginx/conf.d/
 
-EXPOSE 80 443
+
+EXPOSE 80 443 8080
 
 STOPSIGNAL SIGQUIT
 
 CMD ["nginx", "-g", "daemon off;"]
-#CMD ["nginx", "-g", "daemon off;", "/usr/local/bin/init2"]
+#CMD ["/usr/local/bin/init"]
