@@ -11,6 +11,10 @@
     cd NGINX-PLUS
     sudo docker build --no-cache -t nginxplus-wallarm .
     ```
+ 3. Run the Docker image:
+     ```bash
+    docker run -d -e DEPLOY_USER='deploy@example.com' -e DEPLOY_PASSWORD='very_secret' -e WALLARM_API_HOST='us1.api.wallarm.com' -p 80:80 nginxplus-wallarm
+    ```
     
 ## Useful Docker commands
 
