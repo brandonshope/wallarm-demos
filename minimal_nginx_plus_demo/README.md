@@ -17,9 +17,10 @@
     ```
  4. Add the Wallarm Node
     ```bash
-    sudo docker ps
+    sudo docker ps   # get the Container ID
     sudo docker exec -i -t <container_ID> /bin/bash
     sudo /usr/share/wallarm-common/addnode -H us1.api.wallarm.com
+    # enter depoloyemnt username and password when prompted
     ```
     
 ## Useful Docker commands
