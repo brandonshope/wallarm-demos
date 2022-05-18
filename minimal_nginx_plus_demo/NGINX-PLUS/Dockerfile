@@ -72,10 +72,8 @@ RUN set -x \
                         logrotate \
                         monitoring-plugins \
                         supervisor \
-                        #nginx \
                         wallarm-node \
                         nginx-plus-module-wallarm \
-                        #libnginx-mod-http-wallarm \
                         collectd-utils \
                         iptables \
                         bsdmainutils \
@@ -83,11 +81,6 @@ RUN set -x \
     && apt-get remove --purge -y lsb-release \
     && apt-get remove --purge --auto-remove -y && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/nginx-plus.list \
     && rm -rf /etc/apt/apt.conf.d/90nginx /etc/ssl/nginx \
-    #Wallarm Module
-    #&& apt-get -y update && apt-get -y upgrade \
-    #&& apt-get -y --no-install-recommends install \
-    #&& apt-get clean \
-    #&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && chown -R wallarm:wallarm /var/lib/wallarm-tarantool
 
 #RUN cp /usr/share/doc/libnginx-mod-http-wallarm/examples/wallarm-status.conf /etc/nginx/conf.d/
@@ -100,5 +93,5 @@ COPY /conf/collectd.conf /etc/collectd/
 
 EXPOSE 80 443
 
-#CMD ["/usr/local/bin/init"]
-CMD ["nginx", "-g", "daemon off;", "/usr/local/bin/init"]
+CMD ["/usr/local/bin/init"]
+#CMD ["nginx", "-g", "daemon off;", "/usr/local/bin/init"]
