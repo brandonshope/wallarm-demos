@@ -86,7 +86,7 @@ COPY /scripts/addnode_loop /usr/local/bin/
 COPY /conf/nginx.conf /etc/nginx/
 COPY /conf/wallarm-status.conf /etc/nginx/conf.d/
 COPY /conf/wallarm.conf /etc/nginx/conf.d/
-#COPY /conf/default.conf /etc/nginx/conf.d/
+COPY /conf/default.conf /etc/nginx/conf.d/
 
 
 EXPOSE 80 443 8080
