@@ -14,6 +14,7 @@
  3. Run the Docker image (automatically register the node with your Wallarm Credentials):
      ```bash
     sudo docker run -d -e DEPLOY_USER='<deploy_username>' -e DEPLOY_PASSWORD='<deploy_password>' -e WALLARM_API_HOST='us1.api.wallarm.com' -p 80:80 nginxplus-wallarm
+    # Note if your Wallarm account is in our EU datacenters, please use api.wallarm.com
     ```
 
 ## NGINX Plus API/Dashboard
